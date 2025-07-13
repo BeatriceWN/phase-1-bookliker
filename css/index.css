@@ -1,4 +1,122 @@
+/* General Body Styling */
 body {
-	display: grid;
-	grid-template-columns: 2fr 8fr
+    display: grid; /* uses CSS grid to create a two-column layout for the entire page */
+    grid-template-columns: 2fr 8fr; /* grid columns: 2 part of available spave for book-list and 8 parts for boo-details */
+    gap: 20px; /* adds 20 pixels of space between the grid columns (the two panels) */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px; /* adds 20 pixels of margin around the entire body, creating some space from the browser window edges*/
+    background-color: #f4f4f4; /* sets a light grey background color for the page */
+    color: #333; /* sets the default text color to a dark grey */
+}
+
+/* Styling for the Book List Panel */
+#list-panel {
+    background-color: #fff;  /* sets the background of the list panel to white */
+    padding: 20px;  /* adds 20 pixels of space inside the panel, between its content and its borders */
+    border-radius: 8px;  /* rounds the corners of the panel by 8 pixels, giving it a softer look. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* adds a subtle shadow effect to the panel for a sense of depth- 0 (horizontal offset), 2px (vertical offset), 4px (blur radius) & rgba(0, 0, 0, 0.1) sets the shadow color to black with 10% opacity*/
+}
+
+/* Styling for Headings within both Panels */
+#list-panel h2, #show-panel h2 {
+    margin-top: 0;  /* removes the default top margin from <h2> tags, pulling them closer to the top of their respective panels */
+    color: #007bff;  /* sets the color of the <h2> headings to a shade of blue, often used for links or primary elements */
+}
+
+/* Styling for the Unordered List in the List Panel */
+#list {
+    list-style: none;  /* removes the default bullet points (discs) from the list items */
+    padding: 0;  /* removes the default left padding from the unordered list, aligning list items to the left edge of their container*/
+}
+
+/* Styling for Individual List Items in the List Panel */
+#list li {
+    padding: 10px 0;  /* adds 10 pixels of vertical padding (top and bottom) to each list item, for better spacing */
+    cursor: pointer;   /* changes the mouse cursor to a pointer when hovering over a list item, indicating it's clickable */
+    border-bottom: 1px solid #eee;  /* adds a light grey 1-pixel solid line at the bottom of each list item, visually separating them. */
+}
+
+/* Styling for the Last List Item in the List Panel */
+#list li:last-child {
+    border-bottom: none;  /* removes the bottom border from the very last list item, to avoid a redundant line at the bottom of the list */
+}
+
+/* Hover Effect for List Items */
+#list li:hover { /* applies styles when the mouse cursor is over the element */
+    background-color: #f0f0f0;  /* changes the background color to a slightly darker grey when a list item is hovered over, providing visual feedback */
+}
+
+/* Styling for the Book Details Panel */
+#show-panel {
+    background-color: #fff;   /* sets the background of the details panel to white */
+    padding: 20px;  /* adds 20 pixels of space inside the panel */
+    border-radius: 8px;  /* rounds the corners of the panel by 8 pixels */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* adds a subtle shadow effect */
+}
+
+/* Styling for Images within the Book Details Content */
+#book_details_content img {   /* this selector specifically targets an element with ID "book_details_content" */
+    max-width: 180px;   /* ensures the image will not exceed 180 pixels in width */
+    height: auto;   /* automatically adjusts the height to maintain the image's aspect ratio */
+    margin-bottom: 15px;  /* adds 15 pixels of space below the image */
+    border-radius: 4px;  /* slightly rounds the corners of the image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  /* adds a slightly stronger shadow to the image. */
+}
+
+/* Styling for H3 Headings within the Book Details Content */
+#book_details_content h3 {
+    margin-top: 0; /* removes default top margin. */
+    color: #333;   /* sets the text color to a dark grey. */
+}
+
+/* Styling for H4 Headings within the Book Details Content */
+#book_details_content h4 {
+    margin-top: 20px;  /* adds 20 pixels of space above the <h4> heading */
+    margin-bottom: 10px;  /* adds 10 pixels of space below the <h4> heading */
+    color: #555;   /* sets the text color to a slightly lighter grey */
+}
+
+/* Styling for Paragraphs within the Book Details Content */
+#book_details_content p {
+    line-height: 1.6;  /* increases the spacing between lines of text for better readability */
+    margin-bottom: 15px;  /* adds 15 pixels of space below each paragraph */
+}
+
+/* Styling for Buttons within the Book Details Content (default, i.e., LIKE button) */
+#book_details_content button {
+    background-color: #28a745;   /* sets the background of the button to a green shade, commonly used for success/positive actions. */
+    color: white;   /* sets the text color to white. */
+    border: none;   /* removes the default button border */
+    padding: 10px 20px;  /* adds 10px vertical and 20px horizontal padding inside the button */
+    border-radius: 5px;  /* rounds the corners of the button */
+    cursor: pointer;   /* changes cursor to pointer on hover */
+    font-size: 16px;  /* sets the font size of the button text */
+    transition: background-color 0.2s ease;   /* transitions/animates changes to the background-color property over 0.2 seconds, with an 'ease' timing function */
+}
+
+/* Hover Effect for Buttons (default) */
+#book_details_content button:hover {
+    background-color: #218838;  /* darkens the green background when the button is hovered over */
+}
+
+/* Styling for the UNLIKE Button (when it has the 'unlike' class) */
+#book_details_content button.unlike {  /* '.unlike' is a class that will be added/removed by JavaScript */
+    background-color: #dc3545;   /* sets the background to a red shade, commonly used for warning/destructive actions */
+}
+
+/* Hover Effect for the UNLIKE Button */
+#book_details_content button.unlike:hover {
+    background-color: #c82333;   /* darkens the red background when the 'unlike' button is hovered over */
+}
+
+/* Styling for the Unordered List of Liked Users */
+.liked-users ul {
+    list-style: inside;  /* adds bullet points (discs) inside the list items, keeping them within the content flow */
+    padding-left: 0;  /* removes any default left padding from the <ul>, aligning list items closer to the left */
+}
+
+/* Styling for Individual Liked User List Items */
+.liked-users li {
+    margin-bottom: 5px;  /* adds 5 pixels of space below each liked user's name */
+    color: #555;  /* sets the text color to a medium grey */
 }
