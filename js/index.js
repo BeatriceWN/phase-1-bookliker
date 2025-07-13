@@ -38,20 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         usersLikedListUl.innerHTML = ''; //clear any previously displayed users
 
-        //check if the book has an array of users who liked it
-        if (book.users && book.users.length > 0) {
-            //iterate over each user and create a list item for their username
-            book.users.forEach(user => {
-                const li = document.createElement('li');
-                li.textContent = user.username;
-                usersLikedListUl.appendChild(li);
-            });
-        } else {
-            //if no one has liked the book yet, display a message
+        // iterate over each user and create a list item for their username
+        book.users.forEach(user => {
             const li = document.createElement('li');
-            li.textContent = 'No Likes Yet.';
-            usersLikedListUl.appendChild(li);
-        }
+            li.textContent = user.username;
+        usersLikedListUl.appendChild(li);
+        });
     }
 
     //deliverables Implementation
@@ -156,7 +148,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="liked-users">
                 <h4>Users who liked this book:</h4>
                 <ul id="users-liked-list">
-                    </ul>
+                 <li>No Likes Yet.</li>
+                </ul>
             </div>
         `;
 
